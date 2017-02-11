@@ -1,0 +1,4 @@
+secrets.sh
+__pycache__
+env
+db.sqlite
