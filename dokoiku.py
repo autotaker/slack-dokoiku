@@ -1,6 +1,8 @@
 from api import *
 import random
 import sqlite3
+import time
+from websockets.exceptions import ConnectionClosed
 
 conn = sqlite3.connect('db.sqlite')
 
@@ -113,7 +115,19 @@ def main():
     api = API()
     api.send_message('dokoiku is alive')
     try:
-        api.listen(handler)
+        retryCount = 0
+        while retryCount < 10:
+            t1 = time.time()
+            try:
+                api.listen(handler)
+            except ConnectionClosed:
+                pass
+            t2 = time.time()
+            print("[%.0f] Connection Closed. Try recconect(%d)" % (t2, retryCount))
+            if t2 - t1 <= 10:
+                retryCount += 1
+            else:
+                retryCount = 0
     finally:
         api.send_message('dokoiku is dead')
 
