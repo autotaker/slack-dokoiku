@@ -99,7 +99,7 @@ class API:
                 while True:
                     event = await websocket.recv()
                     event = json.loads(event)
-                    if "reply_to" in event:
+                    if "type" not in event:
                         print(event)
                         continue
                     elif event["type"] == "error":
