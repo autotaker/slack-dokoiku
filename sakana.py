@@ -13,7 +13,7 @@ def sakana_capture(channel):
     async def capture_async():
         global capture_busy
         try:
-            capture('data/')
+            await capture('data/')
             os.system('./upload.sh {} {}'.format('data/capture.mp4', channel))
         finally:
             capture_busy = False
