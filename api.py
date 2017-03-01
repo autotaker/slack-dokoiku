@@ -50,7 +50,7 @@ class RTMAPI:
     
     def send_message_rtm(self, message, channel='bottest', channel_id=None):
         if channel_id is None:
-            channel_id = find_channel_id(self, channel)
+            channel_id = self.find_channel_id(channel)
         if channel_id:
             return self.identify({ "type": "message",
                                    "channel": channel_id,
