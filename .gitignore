@@ -1,4 +1,5 @@
 secrets.sh
 __pycache__
 env
+data
 db.sqlite
