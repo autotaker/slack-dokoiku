@@ -88,7 +88,7 @@ def dokoiku(cmd):
         if place == 'all':
             return 'all is a reserved word'
         return dokoiku_add(names, place)
-    elif cmd[1] == 'delte' or cmd[1] == 'del':
+    elif cmd[1] == 'delete' or cmd[1] == 'del':
         if len(cmd) < 4:
             return 'invalid'
         place = cmd[2]
