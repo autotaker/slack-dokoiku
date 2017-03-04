@@ -92,7 +92,7 @@ def dokoiku(cmd):
         if len(cmd) < 4:
             return 'invalid'
         place = cmd[2]
-        names = cmd[3]
+        names = cmd[3:]
         return dokoiku_delete(names, place)
     elif cmd[1] == 'around':
         if len(cmd) != 3:
@@ -140,7 +140,8 @@ def test():
     print(dokoiku('dokoiku list'))
     print(dokoiku('dokoiku list hongo'))
     print(dokoiku('dokoiku list roppongi'))
-    print(dokoiku('dokoiku delete hongo'))
+    print('dokoiku delete hongo')
+    print(dokoiku('dokoiku delete hongo all'))
     print(dokoiku('dokoiku list'))
 
 if __name__ == '__main__':
