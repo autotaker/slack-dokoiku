@@ -44,7 +44,7 @@ def dokoiku_add(names, place):
 
 def dokoiku_delete(names, place):
     c = conn.cursor()
-    if name[0] == 'all':
+    if names[0] == 'all':
         c.execute("DELETE FROM dokoiku WHERE place = ?", (place,))
     else:
         for name in names:
